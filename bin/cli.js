@@ -26,4 +26,4 @@ if (!installDeps) process.exit(-1);
 console.log(
   "Successfully Installed dependencies: Follow the following commands to start"
 );
-console.log(`cd ${repoName} && npm start`);
+console.log(`cd ${repoName} && npm run dev`);
