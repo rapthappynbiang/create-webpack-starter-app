@@ -1,6 +1,6 @@
 {
   "name": "create-webpack-starter-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A React starter using webpack",
   "bin": "./bin/cli.js",
   "main": "index.js",
