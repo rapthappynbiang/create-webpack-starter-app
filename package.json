@@ -2,8 +2,11 @@
   "name": "create-webpack-starter-app",
   "version": "1.0.4",
   "description": "A React starter using webpack",
-  "bin": "./bin/cli.js",
+  "bin": {
+    "create-webpack-starter-app": "index.js"
+  },
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "webpack serve --config=webpack/webpack.dev.js",
     "test": "test",
@@ -20,16 +23,8 @@
   },
   "homepage": "https://github.com/rapthappynbiang/create-webpack-starter-app#readme",
   "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.21.0",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "babel-loader": "^9.1.2",
-    "html-webpack-plugin": "^5.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "chalk": "^5.2.0",
+    "inquirer": "^9.1.4"
   },
   "files": [],
   "publishConfig": {
