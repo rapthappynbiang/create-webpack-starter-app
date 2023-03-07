@@ -14,12 +14,6 @@ const CHOICES = fs.readdirSync(`${__dirname}/templates`);
 
 const QUESTIONS = [
   {
-    name: "project-choice",
-    type: "list",
-    message: "What project template would you like to generate?",
-    choices: CHOICES,
-  },
-  {
     name: "project-name",
     type: "input",
     message: "Project name:",
@@ -28,6 +22,12 @@ const QUESTIONS = [
       else
         return "Project name may only include letters, numbers, underscores and hashes.";
     },
+  },
+  {
+    name: "project-choice",
+    type: "list",
+    message: "Choose the language of you choice:",
+    choices: CHOICES,
   },
 ];
 
@@ -94,7 +94,8 @@ const runCommand = (command) => {
 function runInstallation(repoName) {
   const installDepsCommand = `cd ${repoName} && npm install`;
 
-  console.log(`Installing dependencies for ${repoName}`);
+  console.log("\n");
+  console.log(`Installing all dependencies for ${repoName}`);
   const installDeps = runCommand(installDepsCommand);
   if (!installDeps) process.exit(-1);
 
