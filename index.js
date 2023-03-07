@@ -4,6 +4,7 @@ import { createPromptModule } from "inquirer";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { execSync } from "child_process";
 
 const CURR_DIR = process.cwd();
 const __filename = fileURLToPath(import.meta.url);
@@ -39,6 +40,7 @@ prompt(QUESTIONS).then((answers) => {
   createDirectoryContents(templatePath, projectName);
   const packageJson = `${CURR_DIR}/${projectName}/package.json`;
   rewritePackageJson(packageJson, { name: projectName });
+  runInstallation(projectName);
 });
 
 function createDirectoryContents(templatePath, newProjectPath) {
@@ -77,4 +79,27 @@ function rewritePackageJson(pathTopackageJson, properties) {
 
   const newPackageJson = JSON.stringify({ ...packageJson, ...properties });
   fs.writeFileSync(pathTopackageJson, newPackageJson);
+}
+
+const runCommand = (command) => {
+  try {
+    execSync(`${command}`, { stdio: `inherit` });
+  } catch (e) {
+    console.log(`Failed to execute ${command}`, e);
+    return false;
+  }
+  return true;
+};
+
+function runInstallation(repoName) {
+  const installDepsCommand = `cd ${repoName} && npm install`;
+
+  console.log(`Installing dependencies for ${repoName}`);
+  const installDeps = runCommand(installDepsCommand);
+  if (!installDeps) process.exit(-1);
+
+  console.log(
+    "Successfully Installed dependencies: Follow the following commands to start"
+  );
+  console.log(`cd ${repoName} && npm run dev`);
 }
