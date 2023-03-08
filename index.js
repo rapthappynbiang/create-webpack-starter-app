@@ -77,7 +77,11 @@ function createDirectoryContents(templatePath, newProjectPath) {
 function rewritePackageJson(pathTopackageJson, properties) {
   const packageJson = JSON.parse(fs.readFileSync(pathTopackageJson, "utf-8"));
 
-  const newPackageJson = JSON.stringify({ ...packageJson, ...properties });
+  const newPackageJson = JSON.stringify(
+    { ...packageJson, ...properties },
+    null,
+    2
+  );
   fs.writeFileSync(pathTopackageJson, newPackageJson);
 }
 
