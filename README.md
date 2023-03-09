@@ -1,5 +1,7 @@
 # create-webpack-starter-app
 
+![alt text](<https://github.com/rapthappynbiang/create-webpack-starter-app/blob/master/CWSA(2).png?raw=true>)
+
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/rapthappynbiang/create-webpack-starter-app)
 
 # Usage
