@@ -7,11 +7,6 @@
   },
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "dev": "webpack serve --config=webpack/webpack.dev.js",
-    "test": "test",
-    "build": "webpack"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rapthappynbiang/create-webpack-starter-app.git"
